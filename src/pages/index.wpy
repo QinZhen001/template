@@ -1,0 +1,59 @@
+/* eslint-disable */
+<style type="less">
+  .item {
+    margin-top: ~'20rpx';
+    &:first-child {
+      margin-top: 0;
+    }
+    button {
+      width: ~'300rpx';
+    }
+  }
+</style>
+
+<template>
+  <view class="index">
+  </view>
+</template>
+<script>
+  import wepy from 'wepy';
+
+  export default class Index extends wepy.page {
+    config = {
+      enablePullDownRefresh: false,
+      navigationBarBackgroundColor: '#ffffff',
+      navigationBarTextStyle: 'black',
+      backgroundTextStyle: 'dark'
+    };
+    components = {};
+
+
+    methods = {};
+
+    onShow() {
+
+    }
+
+    onLoad(opt) {
+
+    }
+
+
+    onHide() {
+    }
+
+    onShareAppMessage(res) {
+
+    }
+
+
+    onReachBottom() {
+
+    }
+
+    onPullDownRefresh() {
+
+    }
+  }
+</script>
+

@@ -1,0 +1,45 @@
+<style lang="less">
+
+</style>
+
+<script>
+  import wepy from 'wepy';
+  import 'wepy-async-function';
+
+  export default class extends wepy.app {
+    constructor() {
+      super();
+      this.use('promisify'); //支持promise 支持async/await
+      this.use('requestfix'); //解决请求并发
+    }
+
+    config = {
+      pages: [
+        'pages/index'
+      ],
+      window: {
+        backgroundTextStyle: 'light',
+        navigationBarBackgroundColor: '#fff',
+        navigationBarTitleText: 'WeChat',
+        navigationBarTextStyle: 'black'
+      },
+      navigateToMiniProgramAppIdList: [
+        'wx8061d07d67e054b3'
+      ]
+    };
+
+    onLaunch(option) {
+    }
+
+    onShow() {
+      console.log('onshow');
+    }
+
+    onPageNotFound() {
+      wepy.$instance.xhwSdk.addReport('pagePathError');
+      wx.redirectTo({
+        url: '/pages/index'
+      });
+    }
+  }
+</script>
