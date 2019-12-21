@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path');
-const util = require('../utils');
+const util = require('../util/index');
 const baseConfig = require('../config/baseConfig');
 const userConfig = require('../config/userConfig');
 
@@ -17,7 +17,7 @@ const statSync = (filePath) => {
   let deferred = {
     resolve,
     reject,
-    promise
+    promise,
   }
   fs.stat(filePath, (err, stats) => {
     if (err) {
@@ -54,8 +54,8 @@ const getWXmlFile = async (filePath) => {
 }
 
 /**
-* read the file line by line to find the image tag and deal
-*/
+ * read the file line by line to find the image tag and deal
+ */
 const getImageTag = (file, iconArr) => {
   let startReg = RegExp(/<image(.*?)><\/image>/);
   let startReg1 = RegExp(/<image(.*?)\/>/);
@@ -157,7 +157,7 @@ const getSpriteIcon = () => {
  * @param {String} iconName 图标类名
  * @param {String} line image标签（多行和单行）
  */
-function dealSpriteImage (line, iconName) {
+function dealSpriteImage(line, iconName) {
   let reg = RegExp(/src=["'](.*?)["']/)
   let resStr // 格式化后的标签
   let name = 'i-' + iconName + ' icon ' // 格式化后的标签要添加的类名
@@ -180,7 +180,7 @@ function dealSpriteImage (line, iconName) {
 /**
  * import sprite.less
  */
-function addLess (filedir) {
+function addLess(filedir) {
   let higher = path.resolve(filedir, '..')
   if (higher.indexOf('pages') != -1) {   // 如果页面中有精灵图处理，在app.less引入sprite.less
     judgeLess(1, spriteConfig.appLessPath);
@@ -199,9 +199,9 @@ function addLess (filedir) {
 
 /**
  * 判断是否引入sprite.less
- * @param {String} file 
+ * @param {String} file
  */
-function judgeLess (type, file) {
+function judgeLess(type, file) {
   let newContent
   if (type == 1) {
     newContent = '@import "./common/less/sprite.less";\n'
@@ -216,7 +216,6 @@ function judgeLess (type, file) {
     }
   })
 }
-
 
 
 module.exports = sprite;

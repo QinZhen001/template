@@ -1,8 +1,5 @@
 const path = require('path')
 
-const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals')
-
 const isDev = process.argv.indexOf('--development') >= 0
 const isWatch = process.argv.indexOf('--watch') >= 0
 
@@ -22,13 +19,17 @@ module.exports = {
   lessFiles: [
     `${srcPath}/**/*.less`,
     `!${srcPath}/**/styles/**/*.less`,
-    `!${srcPath}/**/_template/*.less`
+    `!${srcPath}/**/_template/*.less`,
   ],
   jsonFiles: [`${srcPath}/**/*.json`, `!${srcPath}/**/_template/*.json`, `!${srcPath}/node_modules/**/*.json`],
   jsFiles: [`${srcPath}/**/*.js`, `!${srcPath}/node_modules/**/*.js`],
   imgFiles: [
     `${srcPath}/icons/*.{png,jpg,gif,ico}`,
-    `${srcPath}/icons/**/*.{png,jpg,gif,ico}`
+    `${srcPath}/icons/**/*.{png,jpg,gif,ico}`,
   ],
-  // allFiles: [`${srcPath}/**/*`,`${srcPath}/**/*.*`],  //所有文件夹 和 所有文件
+  npmFile: [
+    `${srcPath}/npm/index.js`,
+  ],
+  distNpmFile: `${distPath}/npm`,
+  // allFiles: [`${srcPath}/**/ * `,`${srcPath}/**/ *. * `],  //所有文件夹 和 所有文件
 }

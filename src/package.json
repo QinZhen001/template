@@ -1,5 +1,5 @@
 {
   "dependencies": {
-  },
-  "devDependencies": {}
+    "@xhw/core": "^1.0.6"
+  }
 }
