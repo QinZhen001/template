@@ -1,0 +1,4 @@
+<view>
+    实验
+    <button bindtap="clickTest">test</button>
+</view>

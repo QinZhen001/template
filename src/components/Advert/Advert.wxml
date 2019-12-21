@@ -1,0 +1,71 @@
+<view class="Advert">
+  <wxs module="fn">
+      module.exports = {
+          handlePath: function(path){
+            if(path){
+              var str = path.indexOf('?') == -1 ? '?':'&'
+              return path + str + 'refer_app_scene=10'
+            }else{
+              return '/pages/index/index?refer_app_scene=10'
+            }
+          },
+          isVideoMp: function(path){
+            return path.indexOf('videoMp=') == -1 ? false : true
+          }
+      }
+  </wxs>
+  <!--小程序类型  -->
+  <AdvertExperiment wx:if="{{adList.syStyle}}" adList="{{adList}}"/>
+  <view wx:elif="{{adList.type==1}}">
+    <navigator wx:if="{{adList.images}}"
+      class="guanggaoCard"
+      data-item="{{adList}}"
+      target="miniProgram"
+      open-type="navigate"
+      app-id="{{adList.jump_appid}}"
+      data-appid="{{adList.jump_appid}}"
+      data-id="{{adList.id}}"
+      path="{{fn.handlePath(adList.jump_path)}}"
+      bindtap="ad2ClickReport"
+      bindfail="navigatorFail">
+      <image class="guanggaoCardImg"
+        mode="widthFix"
+        src="{{adList.src}}"
+        data-item="{{adList}}"
+        data-materialid="{{adList.materialId}}"
+        data-adGroup="{{adList.ad_group}}"
+        bindload="adLoad"></image>
+    </navigator>
+  </view>
+  <!--mp链接类型-->
+  <view wx:elif="{{adList.type==2}}">
+    <view wx:if="{{adList}}"
+      class="guanggaoCard" 
+      data-item="{{adList}}"
+      data-id="{{adList.id}}"
+      open-type="navigate"
+      bindtap="toWebView" target="miniProgram">
+      <image class="guanggaoCardImg"
+        mode="widthFix"
+        src="{{adList.src}}"
+        data-item="{{adList}}"
+        data-materialid="{{adList.materialId}}"
+        data-adGroup="{{adList.ad_group}}"
+        bindtap="ad2ClickReport"
+        bindload="adLoad"></image>
+    </view>
+  </view>
+
+  <!--微信广告类型  -->
+  <view wx:elif="{{adList.id}}"
+    class="ad_wrap">
+    <ad unit-id="{{adList.id}}"
+      data-item="{{adList}}"
+      ad-type="{{adList.wechat_ad_type == 3?'video':''}}"
+      ad-theme="white"
+      data-wetype="{{adList.wechat_ad_type}}"
+      bindload="adLoad"
+      binderror="adLoadErr">
+    </ad>
+  </view>
+</view>
