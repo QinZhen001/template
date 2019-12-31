@@ -1,7 +1,5 @@
 {
   "usingComponents": {
-    "GoodsAdvert": "../GoodsAdvert/GoodsAdvert",
-    "AdvertExperiment": "../AdvertExperiment/AdvertExperiment"
   },
   "component": true
 }

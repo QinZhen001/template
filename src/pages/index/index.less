@@ -1,15 +1,24 @@
 
-page{
+page {
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
   background-color: #f1f1f1;
-  .pendant_list{
-  }
-  .Iphonex {
-    top: 86px !important;
-  }
-  .page_top {
-    padding-top: ~'100rpx';
-  }
-  .page_bottom {
-    padding-bottom: ~'100rpx';
+  box-sizing: border-box;
+  .welcome {
+    width: 100%;
+    position: relative;
+    .welcome-text {
+      margin-top: 10px;
+      font-size: 22px;
+      text-align: center;
+      color: tomato;
+    }
+    button {
+      margin-top: 10px;
+      &:last-child {
+        margin-bottom: 10px;
+      }
+    }
   }
 }

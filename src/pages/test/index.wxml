@@ -1,0 +1,3 @@
+<view class="welcome">
+    <button bindtap="preLoadNB">预加载 navigateBack</button>
+</view>

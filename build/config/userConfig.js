@@ -10,13 +10,13 @@ const userConfig = {
   srcPath,
   cliPath: "D:\\wechat_devtool\\cli",
   transformList: [
-    // "sprite", 
+    // "sprite",
     // "uploadImg",
   ],
   ossConfig: {
     region: 'oss-cn-shenzhen', // bucket所在的区域
-    accessKeyId: 'LTAISNM0amKPduAE',  //通过阿里云控制台创建的AccessKey
-    accessKeySecret: 'CgNDCiiiI5rBRBGMHKxR2aG1XpjuU0', //通过阿里云控制台创建的AccessSecret
+    accessKeyId: '',  //通过阿里云控制台创建的AccessKey
+    accessKeySecret: '', //通过阿里云控制台创建的AccessSecret
     bucket: 'res-miniprogram', // 桶名
   },
   spriteConfig: {

@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/test/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "迷音视频"
+    "navigationBarTitleText": "xhw"
   },
   "navigateToMiniProgramAppIdList": [
     "wxf48f76fd10f124d4",
