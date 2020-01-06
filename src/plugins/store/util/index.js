@@ -37,4 +37,30 @@ export function isAsyncFunction(fn) {
   return Object.prototype.toString.call(fn) === "[object AsyncFunction]";
 }
 
+export function isFunction(obj) {
+  return Object.prototype.toString.call(obj) == '[object Function]'
+}
 
+export function isArray(obj) {
+  return Object.prototype.toString.call(obj) === '[object Array]'
+}
+
+export function isString(obj) {
+  return typeof obj === 'string'
+}
+
+export function nan(value) {
+  return typeof value === "number" && isNaN(value)
+}
+
+export function isInArray(arr = [], item) {
+  if (!item) {
+    return false
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === item) {
+      return true
+    }
+  }
+  return false
+}

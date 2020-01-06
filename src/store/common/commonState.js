@@ -1,7 +1,7 @@
 import {imitateModel} from "./util/index"
 
 
-const state = {
+const globalData = {
   model: wx.getStorageSync('model'),
   test: "",
 };
@@ -20,7 +20,7 @@ const setters = {};
 
 
 export default {
-  state,
+  globalData,
   getters,
   setters,
 };

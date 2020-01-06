@@ -63,11 +63,20 @@ class index {
 
   constructor(stores) {
     stores && Object.keys(stores).forEach((name) => {
-      // console.log('name', name, stores[name]);
-      stores[name].state && (this.state = {...this.state, ...stores[name].state});
-      stores[name].getters && (this.getters = {...this.getters, ...stores[name].getters});
-      stores[name].setters && (this.setters = {...this.setters, ...stores[name].setters});
-    });
+      const store = stores[name]
+      if (store.globalData) {
+        this.globalData = {...this.globalData, ...store.globalData}
+      }
+      if (store.viewData) {
+        this.viewData = {...this.viewData, ...store.viewData}
+      }
+      if (store.getters) {
+        this.getters = {...this.getters, ...store.getters};
+      }
+      if (store.setters) {
+        this.setters = {...this.setters, ...store.setters};
+      }
+    })
     this.get = this.get.bind(this)
     this.commit = this.commit.bind(this)
     this.set = this.set.bind(this)
@@ -85,9 +94,18 @@ class index {
    */
   get(name) {
     if (!name) {
-      return deepCopy(this.state)
+      return deepCopy({
+        globalData: this.globalData,
+        viewData: this.viewData,
+      })
     }
-    return deepCopy(this.state[name])
+    if (this.globalData[name]) {
+      return deepCopy(this.globalData[name])
+    }
+    if (this.viewData[name]) {
+      return deepCopy(this.viewData[name])
+    }
+    return undefined
   }
 
 
@@ -116,9 +134,7 @@ class index {
           // state没有值 触发getters
           let getter = this.getters[name];
           if (getter) {
-            result = await (arguments.length === 1
-                ? getter(this.set)
-                : getter(data, this.set)
+            result = await (arguments.length === 1 ? getter(this.set) : getter(data, this.set)
             )
           }
         }
@@ -133,30 +149,30 @@ class index {
    * @param name 在state中的名字
    * @param payload 数据载荷
    */
-  commit(name, payload) {
-    if (!this.setters[name]) {
-      throw new Error(logger(`setters中不存在: ${name}`));
-    }
-    this.setters[name](this.state, deepCopy(payload));
-  }
+  // commit(name, payload) {
+  //   if (!this.setters[name]) {
+  //     throw new Error(logger(`setters中不存在: ${name}`));
+  //   }
+  //   this.setters[name](this.state, deepCopy(payload));
+  // }
 
-  set(key, value) {
-    if (!this.state.hasOwnProperty(key)) {
-      throw new Error(logger(`store不存在 ${key}`));
-    }
-    if (typeof key !== 'string') {
-      throw new Error(logger(`set方法中key必须为一个string  "${key}" 非法`));
-    }
-    this.state[key] = deepCopy(value)
-  }
-
-  del(key) {
-    if (key && typeof key === 'string') {
-      delete this.state[key];
-      delete this.getters[key];
-      delete this.setters[key];
-    }
-  }
+  // set(key, value) {
+  //   if (!this.state.hasOwnProperty(key)) {
+  //     throw new Error(logger(`store不存在 ${key}`));
+  //   }
+  //   if (typeof key !== 'string') {
+  //     throw new Error(logger(`set方法中key必须为一个string  "${key}" 非法`));
+  //   }
+  //   this.state[key] = deepCopy(value)
+  // }
+  //
+  // del(key) {
+  //   if (key && typeof key === 'string') {
+  //     delete this.state[key];
+  //     delete this.getters[key];
+  //     delete this.setters[key];
+  //   }
+  // }
 }
 
 

@@ -17,7 +17,8 @@ function consume() {
 xhw.pageComponent({
   methods: {
     onLoad() {
-      console.log("test onLoad")
+      console.log("test onLoad", this.$store)
+      console.log("this.$store.get()", this.$store.get())
     },
     preLoad(data) {
       console.log("test page preLoad", data)

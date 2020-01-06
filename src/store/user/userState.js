@@ -1,12 +1,24 @@
 import {getOpenIdByRequest} from "./util/index";
 
 
-const state = {
+const globalData = {
   openId: wx.getStorageSync('openId'),
   sessionId: '',
   isLogin: false,
   sex: 'man',
 };
+
+const viewData = {
+  aaa: "aaa",
+  bbb: "bbb",
+  ccc: {
+    ddd: "ddd",
+    eee: [1, 2, 3, {
+      xxx: "xxx",
+    }],
+  },
+  fff: [{aa: 11}, {aa: 22}, {aa: 33}, {aa: 44}],
+}
 
 const getters = {
   isLogin: (state) => {
@@ -47,7 +59,8 @@ const setters = {
 };
 
 export default {
-  state,
+  viewData,
+  globalData,
   getters,
   setters,
 };

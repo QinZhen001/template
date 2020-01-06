@@ -1,5 +1,5 @@
 import XhwRequest from "./xhwRequest"
-import {extend} from "../shared/util"
+import {extend} from "../../shared/util"
 
 function createInstance() {
   console.log("createInstance createInstance")

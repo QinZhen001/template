@@ -1,7 +1,7 @@
 import {handleCustom, handleGlobalPlugins, handleHook, handleInject, initPlugins} from "./plugin";
 import {handlePreLoad} from "./preload"
 import {handleDiff} from "../../diff/index"
-
+import {handleStore} from "./store"
 
 let uid = 0;
 
@@ -53,10 +53,13 @@ function initHost(Host) {
     handlePreLoad(vm)
     // 处理自定义方法
     handleCustom(vm)
+    // 处理store插件
+    handleStore(vm)
     // 处理自定义diff相关
     handleDiff(vm)
     // 处理注入方法
     handleInject(vm)
+    // 处理生命周期
     handleHook(vm)
   };
 }

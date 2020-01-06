@@ -11,7 +11,7 @@ import {pageComponent} from "./xhw/class/xhw-page-component";
 import {page} from "./xhw/class/xhw-page";
 import {component} from "./xhw/class/xhw-component";
 import {XhwMixin} from "./xhw/class/xhw-mixin";
-import {request} from "./request/index";
+import {request} from "./xhw/request/index";
 import {xhwapi} from "./helper/xhwapi";
 
 

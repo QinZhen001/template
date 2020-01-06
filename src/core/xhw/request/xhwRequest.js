@@ -1,4 +1,4 @@
-import {isNumber, isObject, logger} from "../shared/util"
+import {isNumber, isObject, logger} from "../../shared/util"
 import {dispatchRequest} from './dispatch'
 import InterceptorManager from "./interceptorManager"
 
