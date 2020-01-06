@@ -103,7 +103,7 @@ function usePlugins(vm) {
 
     // 存入全局plugins
     if (vm.$type === types.app) {
-      vm.$globalPluginNames.push(plugin.name)
+      vm.$$globalPluginNames.push(plugin.name)
     }
 
     // theHost是包装类实例 并不是小程序原生实例
@@ -212,13 +212,13 @@ function handleGlobalPlugins(vm) {
   }
   if (vm.$type === types.page) {
     const app = getApp()
-    for (let name of vm.$globalPluginNames) {
+    for (let name of vm.$$globalPluginNames) {
       vm[name] = app[name]
     }
   } else {
     vm._insertInitFun(function ({theHost}) {
       const app = getApp()
-      for (let name of vm.$globalPluginNames) {
+      for (let name of vm.$$globalPluginNames) {
         theHost[name] = app[name]
       }
     })
@@ -336,9 +336,9 @@ function pushInitFun(func) {
  * @param Host
  */
 function initPlugin(Host) {
-  // $globalPluginNames 全局插件的名字 存在于Host类上
-  if (!Host.prototype.$globalPluginNames) {
-    Host.prototype.$globalPluginNames = []
+  // $$globalPluginNames 全局插件的名字 存在于Host类上
+  if (!Host.prototype.$$globalPluginNames) {
+    Host.prototype.$$globalPluginNames = []
   }
 }
 

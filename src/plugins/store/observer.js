@@ -1,5 +1,5 @@
-import {isArray, isFunction, isInArray, isObject, nan} from "./util";
-import {arrMethods, triggerStr} from "./constant";
+import {isArray, isFunction, isInArray, isObject, nan} from "./util/index";
+import {arrMethods, triggerStr} from "./constant/index";
 
 
 function _getRootName(prop, path) {
@@ -13,10 +13,7 @@ function _getRootName(prop, path) {
  * 在需要的观察的数据中的每一层数据都添加$observeProps
  * $observeProps中包含：$observerPath
  */
-class Observer {
-  // constructor() {
-  // }
-
+export class Observer {
   observe(target, callback) {
     if (isArray(target)) {
       if (!target.length) {

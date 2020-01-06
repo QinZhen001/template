@@ -92,7 +92,6 @@ class Host {
 initHost(Host);
 // 插件机制
 initPlugin(Host);
-// 预加载
-// initPreLoad(Host)
+
 
 export {Host};

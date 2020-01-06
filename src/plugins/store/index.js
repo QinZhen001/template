@@ -1,4 +1,6 @@
 import {deepCopy, logger} from "./util/index"
+import {Observer} from "./observer"
+
 
 global.singleton = global.singleton || {};
 const singleton = global.singleton;
@@ -78,10 +80,10 @@ class index {
       }
     })
     this.get = this.get.bind(this)
-    this.commit = this.commit.bind(this)
-    this.set = this.set.bind(this)
-    this.del = this.del.bind(this)
-    this.getAsync = this.getAsync.bind(this)
+    // this.commit = this.commit.bind(this)
+    // this.set = this.set.bind(this)
+    // this.del = this.del.bind(this)
+    // this.getAsync = this.getAsync.bind(this)
   }
 
 
@@ -175,17 +177,24 @@ class index {
   // }
 }
 
+function upDateCb(prop, value, old, path) {
+
+}
+
 
 export default function (stores) {
-  const instance = index.getInstance(stores);
+  const store = index.getInstance(stores);
+  // const oba = new Observer()
+  // observe(store.viewData, upDateCb)
+  debugger
   return {
     name: 'store',
     custom: {
-      get: instance.get,
-      commit: instance.commit,
-      set: instance.set,
-      del: instance.del,
-      getAsync: instance.getAsync,
+      get: store.get,
+      // commit: instance.commit,
+      // set: instance.set,
+      // del: instance.del,
+      // getAsync: instance.getAsync,
     },
   };
 };
