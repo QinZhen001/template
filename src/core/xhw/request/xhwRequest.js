@@ -83,10 +83,12 @@ export default class XhwRequest {
     this.request = this.request.bind(this)
   }
 
-  init(config, store) {
+  init(config, option) {
     _checkConfig(config)
     this.config = config
-    this.store = store
+    if (option) {
+      this.store = option.store
+    }
   }
 
 

@@ -15,10 +15,32 @@ function consume() {
 
 
 xhw.pageComponent({
+  use: [
+    "fff",
+    "bbb",
+  ],
+  data: {
+    test: {
+      a: "a",
+      b: "b",
+    },
+  },
+  computed: {
+    testComputed(scope) {
+      console.log("scope", scope)
+      debugger
+      return this.bbb + "asd"
+    },
+  },
   methods: {
     onLoad() {
-      console.log("test onLoad", this.$store)
-      console.log("this.$store.get()", this.$store.get())
+      console.log("aaa", this)
+      debugger
+    },
+    onShow() {
+      this.setData({
+        test: JSON.stringify(this.data.test),
+      })
     },
     preLoad(data) {
       console.log("test page preLoad", data)
@@ -38,6 +60,9 @@ xhw.pageComponent({
           aaa: "aaa",
         },
       })
+    },
+    changeStore() {
+      console.log("loasd")
     },
   },
 })

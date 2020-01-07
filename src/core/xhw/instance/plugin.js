@@ -229,30 +229,32 @@ function handleGlobalPlugins(vm) {
 
 
 function attachPlugin(plugin) {
+  // debugger
   const vm = this;
-
-  if (!vm.data) vm.data = {};
-  if (vm.data[plugin.name]) {
-    throw new Error(`插件 ${plugin.name} 命名空间被占用，请更改插件名`);
-  }
+  const plgName = plugin.name
 
   // attach data
-  if (plugin.content.data) {
-    vm.data[plugin.name] = plugin.content.data;
+  const data = plugin.content.data
+  if (data) {
+    if (vm.$type !== types.app) {
+      throw new Error(logger(`只有全局插件支持data, ${plgName} 不支持`))
+    }
+    vm.$globalData = vm.$globalData || {}
+    const scopeData = (vm.$globalData[plgName] = {})
+    for (let item in data) {
+      if (data.hasOwnProperty(item)) {
+        scopeData[item] = data[item]
+      }
+    }
   }
-  //
+
   // attach custom method
   // 增加自定义方法 在plugin.name的作用域下
   // Component无法使用带custom的插件
   if (plugin.content.custom) {
     const customMethods = plugin.content.custom;
     Object.keys(customMethods).forEach(name => {
-      if (!isFunction(customMethods[name])) {
-        throw new Error(
-          logger(`${plugin.name}插件的customMethod: ${name} 必须为一个函数`),
-        );
-      }
-      addCustom.call(vm, plugin.name, name, customMethods[name]);
+      addCustom.call(vm, plgName, name, customMethods[name]);
     });
   }
 
@@ -262,7 +264,7 @@ function attachPlugin(plugin) {
     Object.keys(injectMethods).forEach(name => {
       if (!isFunction(injectMethods[name])) {
         throw new Error(
-          `${plugin.name}插件的customMethod: ${name} 必须为一个函数`,
+          `${plgName}插件的customMethod: ${name} 必须为一个函数`,
         );
       }
       addInject.call(vm, name, injectMethods[name]);
@@ -301,12 +303,12 @@ function addInject(name, func) {
   this.$injectQueueMap[name].push(func);
 }
 
-function addCustom(domain, funcName, func) {
+function addCustom(domain, funcName, some) {
   const vm = this
   if (!vm.$customFunMap[domain]) {
     vm.$customFunMap[domain] = {};
   }
-  vm.$customFunMap[domain][funcName] = func;
+  vm.$customFunMap[domain][funcName] = some;
 }
 
 function addHook(name, func) {

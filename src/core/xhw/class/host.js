@@ -23,6 +23,9 @@ class Host {
         this[name] = option[name]
       }
     }
+    if (!this.data) {
+      this.data = {};
+    }
     //原生生命周期钩子名字
     this.$nativeHookNames = nativeHookNames;
     //首位生命周期

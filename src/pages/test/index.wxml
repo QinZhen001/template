@@ -1,3 +1,14 @@
-<view class="welcome">
+<view class="content">
     <button bindtap="preLoadNB">预加载 navigateBack</button>
+    <view class="text">test store</view>
+    <view class="demo-text">
+        {{test}}
+    </view>
+    <view class="demo-text">
+        testComputed: {{testComputed}}
+    </view>
+    <view class="demo-text">
+        store 中的数据： {{bbb}}
+    </view>
+    <button bindtap="changeStore">更改store中的数据</button>
 </view>

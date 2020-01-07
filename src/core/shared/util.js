@@ -153,3 +153,24 @@ export function isNumber(obj) {
 export const isDate = d => d instanceof Date;
 export const isEmpty = o => Object.keys(o).length === 0;
 export const properObject = o => isObject(o) && !o.hasOwnProperty ? {...o} : o;
+
+
+
+
+
+
+export function nan(value) {
+  return typeof value === "number" && isNaN(value)
+}
+
+export function isInArray(arr = [], item) {
+  if (!item) {
+    return false
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === item) {
+      return true
+    }
+  }
+  return false
+}

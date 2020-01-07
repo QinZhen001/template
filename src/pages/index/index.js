@@ -34,7 +34,7 @@ xhw.pageComponent({
       debugger
     },
     onLoad() {
-      console.log("onLoad", this.$store.get())
+      console.log("onLoad", this)
     },
     onShow() {
       console.log("onShow", this)
@@ -92,15 +92,15 @@ xhw.pageComponent({
       console.log("testPreloadAsync success", res)
     },
     commitState() {
-      this.$store.set("model", "ttt")
+      // this.$store.set("model", "ttt")
     },
     getStateSync() {
-      let model = this.$store.get("model")
-      console.log("getStateSync model", model)
+      // let model = this.$store.get("model")
+      // console.log("getStateSync model", model)
     },
     async getStateAsync() {
-      let openId = await this.$store.getAsync("openId")
-      console.log("getStateAsync openId", openId)
+      // let openId = await this.$store.getAsync("openId")
+      // console.log("getStateAsync openId", openId)
     },
     testConsole() {
       console.log("loglogloglog")
