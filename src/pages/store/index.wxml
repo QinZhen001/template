@@ -1,0 +1,7 @@
+<view class="content">
+    <view class="text">test store</view>
+    <view class="demo-text">
+        store 中的数据： {{bbb}}
+    </view>
+    <button bindtap="changeStore">更改store中的数据</button>
+</view>

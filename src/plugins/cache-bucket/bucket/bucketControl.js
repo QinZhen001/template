@@ -1,5 +1,5 @@
-const Bucket = require('./bucket');
-const {BUCKET_KEY, BUCKET_READ_KEY} = require("../util/constant");
+import {Bucket} from './bucket';
+import {BUCKET_KEY, BUCKET_READ_KEY} from "../util/constant";
 
 global[BUCKET_KEY] = global[BUCKET_KEY] || {};
 const bucketStore = global[BUCKET_KEY];
@@ -7,7 +7,7 @@ const bucketStore = global[BUCKET_KEY];
 /**
  * 存储桶控制器
  */
-class BucketControl {
+export class BucketControl {
   static getInstance(bucketConfig) {
     if (!BucketControl.instance) {
       BucketControl.instance = new BucketControl(bucketConfig);

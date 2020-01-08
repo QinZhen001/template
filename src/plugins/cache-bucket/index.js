@@ -1,3 +1,4 @@
+import {BucketControl} from "./bucket/bucketControl"
 
 export default function (config) {
   const bucketControl = BucketControl.getInstance(config);
