@@ -1,6 +1,7 @@
 import testBehavior from "../../behaviors/testBehavior"
+import {xhw} from "@xhw/core"
 
-const {xhw} = require("../../core/index")
+// import {xhw} from "../../core/index"
 
 
 xhw.component({

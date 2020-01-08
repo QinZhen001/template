@@ -18,12 +18,6 @@ import {xhwapi} from "./helper/xhwapi";
 export {store} from "./store/index"
 
 
-// import event from "./plugin/event/event";
-// import bucketControl from "./plugin/cache-bucket/bucket-control";
-// import storeX from "./plugin/x/storeX";
-// import storage from "./plugin/storage/storage";
-// import preload from "./plugin/preload/preload";
-
 export * from "./decorators/index";
 
 export const xhwApi = xhwapi(wx);
