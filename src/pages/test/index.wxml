@@ -1,0 +1,15 @@
+<view class="content">
+    <button bindtap="preLoadNB">预加载 navigateBack</button>
+    <view class="text">test store</view>
+    <view class="demo-text">
+        testComputed: {{testComputed}}
+    </view>
+    <view class="demo-text">
+        store 中的数据： {{bbb}}
+    </view>
+    <button bindtap="changeStore">更改store中的数据</button>
+    <view class="text">jump</view>
+    <button bindtap="navToStore">跳转store页面</button>
+    <view class="text">test cache bucket</view>
+    <button bindtap="getDataFromBucket">从缓存桶获取数据</button>
+</view>

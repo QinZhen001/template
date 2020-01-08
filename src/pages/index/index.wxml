@@ -1,0 +1,19 @@
+<view class="content">
+    <Advert></Advert>
+    <view class="text">test request</view>
+    <button bindtap="testNormalRequest">testNormalRequest</button>
+    <button bindtap="testWaitRequest">testWaitRequest</button>
+    <button bindtap="testQueueRequest">testQueueRequest</button>
+    <button bindtap="testRetry">请求重试</button>
+    <view class="text">test preLoad</view>
+    <button bindtap="testPreloadSync">预加载 (同步数据) 跳至test页面</button>
+    <button bindtap="testPreloadAsync">预加载 (异步数据) 跳至test页面</button>
+    <view class="text">test store</view>
+    <button bindtap="commitState">存入数据</button>
+    <button bindtap="getStateSync">获取存入的数据 (同步)</button>
+    <button bindtap="getStateAsync">获取数据 (异步)</button>
+    <view class="text">test console</view>
+    <button bindtap="testConsole">测试console</button>
+    <view class="text">test diff</view>
+    <button bindtap="testDiff">测试 diff</button>
+</view>

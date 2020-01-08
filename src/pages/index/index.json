@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Advert": "../../components/Advert/Advert"
+  },
+  "enablePullDownRefresh": true
+}

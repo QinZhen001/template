@@ -1,14 +1,22 @@
-# template
-:books:  前端项目模板
+# xhw-template
+
+
+## todo
+
+* diff
+* setData
+* cache-bucket
+
+
+## 注意
+
+
+### mock
+
+mock文件下的文件使用require的话，会有缓存
 
 
 
-* baseWxApp 基础小程序模板
-* specialWxApp 特殊小程序模板
-* h5 h5模板
-* background 后台项目模板
+### store
 
-
-
-
-> 不同分支对应不同的模板
+store对于框架有很强的耦合，没必有单独出一个plugin，把他集成于框架内部
