@@ -8,4 +8,6 @@
         store 中的数据： {{bbb}}
     </view>
     <button bindtap="changeStore">更改store中的数据</button>
+    <view class="text">jump</view>
+    <button bindtap="navToStore">跳转store页面</button>
 </view>

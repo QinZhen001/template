@@ -1,4 +1,4 @@
-const {BUCKET_KEY, BUCKET_READ_KEY} = require("../util/constant");
+import {BUCKET_KEY, BUCKET_READ_KEY} from "../util/constant";
 
 global[BUCKET_KEY] = global[BUCKET_KEY] || {};
 const bucketStore = global[BUCKET_KEY];
@@ -94,7 +94,7 @@ async function _afterGet({name, num, fn}) {
  * checkData前置 正常请求前补充数据
  * (请求后再补充数据，会导致游标更新不及时)
  */
-class Bucket {
+export class Bucket {
   constructor({name, action, minimum, filter}) {
     if (!name) {
       throw new Error(`缓存桶名字不存在`);
@@ -148,7 +148,6 @@ class Bucket {
         throw new Error(`bucket名: ${this.name} 的action不存在`);
       }
       if (_beforeGet({name: this.name, resolve, reject})) {
-        console.log(123)
         // 检查桶是否需要填充数据
         if (this.checkData(num)) {
           try {
@@ -273,5 +272,3 @@ class Bucket {
   }
 }
 
-module
-  .exports = Bucket;

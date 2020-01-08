@@ -63,6 +63,12 @@ xhw.pageComponent({
       this.$store.set("bbb", `更改bbb${round}`)
       debugger
     },
+    navToStore() {
+      console.log("navToStore")
+      wx.navigateTo({
+        url: "/pages/store/index",
+      })
+    },
   },
 })
 
