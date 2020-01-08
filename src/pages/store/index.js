@@ -1,4 +1,5 @@
-const {xhw, xhwApi} = require("../../core/index")
+import {xhw, xhwApi} from "@xhw/core"
+// const {xhw, xhwApi} = require("../../core/index")
 
 xhw.pageComponent({
   use: [

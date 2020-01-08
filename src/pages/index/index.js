@@ -1,5 +1,7 @@
-const {xhw, xhwApi} = require("../../core/index")
-const pagePlguin = require("../../plugins/pagePlguin")
+import {xhw, xhwApi} from "@xhw/core"
+import pagePlguin from "../../plugins/pagePlguin"
+
+// const {xhw, xhwApi} = require("../../core/index")
 
 
 function consume() {
@@ -115,7 +117,7 @@ xhw.pageComponent({
       })
     },
   },
-  // plugins: [pagePlguin],
+  plugins: [pagePlguin],
 })
 
 

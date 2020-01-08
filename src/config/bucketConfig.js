@@ -1,3 +1,5 @@
+import xhw from "@xhw/core"
+
 /**
  * 缓存桶配置文件
  * action: 自定义函数
@@ -14,7 +16,11 @@
 const bucketConfig = {
   testList: {
     action: async (success, fail) => {
-
+      xhw.request("testNormal").then(res => {
+        success(res.data)
+      }, rej => {
+        fail(rej)
+      })
     },
     minimum: 5,
     filter: (item, curReadMap, globalReadMap) => {
@@ -27,5 +33,5 @@ const bucketConfig = {
   },
 };
 
+export default bucketConfig
 
-module.exports = bucketConfig;

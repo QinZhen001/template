@@ -1,26 +1,12 @@
-import {store, xhw} from "./core/index";
+import {store, xhw} from "@xhw/core";
+import event from "@xhw/plugin-event"
+import bucket from "@xhw/plugin-bucket"
 import reqConfig from "./config/reqConfig"
-
+import bucketConfig from "./config/bucketConfig";
 import state from "./store/index"
 
 
-import event from "./plugins/event/index"
-
-import proxy from './lib/proxy'
-
-const appReportPlugin = require("./plugins/appReportPlugin")
-const appReportPlugin2 = require("./plugins/appReportPlugin2")
-
-
-console.log("proxy", proxy)
-
-console.log("store", store)
-
-
-// console.log("reqConfig", reqConfig)
-// console.log("xhw", xhw.request)
-//
-// debugger
+import appReportPlugin from "./plugins/appReportPlugin"
 
 xhw.app({
   $preLoad: true,
@@ -28,24 +14,16 @@ xhw.app({
   onLaunch(options) {
     debugger
     console.log("this", this)
-    store.init(state, {
-      debug: true,
-      updateAll: false,
-    })
-    xhw.request.init(reqConfig, {store: store})
-    // xhw.request.defaults.retryTime = 15000
-    // console.log(xhw.request.defaults)
-    // debugger
+    store.init(state, {debug: true, updateAll: false})
+    xhw.request.init(reqConfig, {store: store, retryTime: 5000})
   },
   onShow() {
-    console.log("1111onShow", this)
-    let app = getApp()
-    console.log("app", app.$launch)
+
   },
   plugins: [
     appReportPlugin,
-    appReportPlugin2,
     event,
+    bucket(bucketConfig),
   ],
 });
 

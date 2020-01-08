@@ -15,7 +15,7 @@ const nativeHook = {
 };
 
 
-function appReportPlugin() {
+export default function appReportPlugin() {
   return {
     name: 'launch',
     nativeHook: nativeHook,
@@ -30,5 +30,3 @@ function appReportPlugin() {
   };
 };
 
-
-module.exports = appReportPlugin;
