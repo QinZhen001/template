@@ -86,9 +86,8 @@ export default class XhwRequest {
   init(config, option) {
     _checkConfig(config)
     this.config = config
-    if (option) {
-      this.store = option.store
-    }
+    this.store = option.store
+    this.defaults.retryTime = option.retryTime || 5000
   }
 
 

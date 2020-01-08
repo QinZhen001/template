@@ -47,8 +47,9 @@ xhw.pageComponent({
       console.log("onUnload")
     },
     testNormalRequest() {
-      console.log("testNormalRequest")
-      xhw.request("testNormal")
+      xhw.request("testNormal").then(res => console.log("testNormal", res))
+      xhw.request("testNormal").then(res => console.log("testNormal", res))
+      xhw.request("testNormal").then(res => console.log("testNormal", res))
     },
     testWaitRequest() {
       console.log("testWaitRequest")

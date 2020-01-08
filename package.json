@@ -15,7 +15,7 @@
     "build-theme": "node theme/index.js",
     "transform": "gulp transform",
     "checkTheme": "node build/task/checkTheme.js",
-    "mock": "qz-cli mock"
+    "mock": "xhw-cli mock"
   },
   "author": "qz",
   "license": "ISC",

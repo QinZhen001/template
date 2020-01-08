@@ -2,11 +2,10 @@ import {store, xhw} from "./core/index";
 import reqConfig from "./config/reqConfig"
 
 import state from "./store/index"
-
-
-import event from "./plugins/event/index"
-
 import proxy from './lib/proxy'
+
+
+// import event from "./plugins/event/index"
 
 const appReportPlugin = require("./plugins/appReportPlugin")
 const appReportPlugin2 = require("./plugins/appReportPlugin2")
@@ -23,7 +22,7 @@ console.log("store", store)
 // debugger
 
 xhw.app({
-  $preLoad: true,
+  $preLoad: false,
   $consoleLevel: 1,
   onLaunch(options) {
     debugger
@@ -45,7 +44,6 @@ xhw.app({
   plugins: [
     appReportPlugin,
     appReportPlugin2,
-    event,
   ],
 });
 

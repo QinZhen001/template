@@ -95,6 +95,9 @@ function _vmUninstallPreLoad() {
 export function initPreLoad(vm) {
   if (vm.$type === types.app) {
     if (vm.$preLoad) {
+      if (vm.$$globalPluginNames.indexOf("$event") === -1) {
+        throw new Error(logger(`preLoad 依赖 event插件`))
+      }
       // 全局预加载标志位
       $isPreLoad = true
       // 改变原来的路由api
