@@ -15,7 +15,7 @@ import {request} from "./xhw/request/index";
 import {xhwapi} from "./helper/xhwapi";
 
 
-export store from "./store/index"
+export {store} from "./store/index"
 
 
 // import event from "./plugin/event/event";

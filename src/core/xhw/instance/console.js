@@ -43,6 +43,10 @@ function _getFinLevel(level) {
 
 // ------------------------------------------------------------
 
+/**
+ * 初始化自定义console
+ * @param vm (仅在xhwApp有用)
+ */
 export function initConsole(vm) {
   let level = vm.$consoleLevel
   if (!level) {

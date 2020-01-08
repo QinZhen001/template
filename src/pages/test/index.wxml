@@ -2,9 +2,6 @@
     <button bindtap="preLoadNB">预加载 navigateBack</button>
     <view class="text">test store</view>
     <view class="demo-text">
-        {{test}}
-    </view>
-    <view class="demo-text">
         testComputed: {{testComputed}}
     </view>
     <view class="demo-text">

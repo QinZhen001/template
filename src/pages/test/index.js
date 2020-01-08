@@ -20,21 +20,18 @@ xhw.pageComponent({
     "bbb",
   ],
   data: {
-    test: {
-      a: "a",
-      b: "b",
-    },
+    bbb: "同名会被store覆盖",
   },
   computed: {
     testComputed(scope) {
       console.log("scope", scope)
       debugger
-      return this.bbb + "asd"
+      return this.bbb + " computed"
     },
   },
   methods: {
     onLoad() {
-      console.log("aaa", this)
+      console.log("onLoad", this)
       debugger
     },
     onShow() {
@@ -62,7 +59,9 @@ xhw.pageComponent({
       })
     },
     changeStore() {
-      console.log("loasd")
+      const round = Math.ceil(Math.random() * 10);
+      this.$store.set("bbb", `更改bbb${round}`)
+      debugger
     },
   },
 })

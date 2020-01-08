@@ -1,6 +1,6 @@
 import {isFunction, logger} from "../../shared/util";
 import {initHost} from "../instance/init";
-import {initPlugin} from "../instance/plugin";
+import {initPlugins} from "../instance/plugin";
 
 // ------------------------------- 主体类 ------------------------
 
@@ -16,7 +16,7 @@ function _checkFun(name, fn) {
  * 1. 对宿主进行可插件初始化
  * 2. 提供 use(plugin) 方法，实现插件的引入
  */
-class Host {
+export class Host {
   constructor({option = {}, nativeHookNames = [], launchHookName = nativeHookNames[0], type}) {
     for (let name in option) {
       if (option.hasOwnProperty(name)) {
@@ -94,7 +94,7 @@ class Host {
 // 声明_init() 做一堆初始化操作
 initHost(Host);
 // 插件机制
-initPlugin(Host);
+initPlugins(Host);
 
 
-export {Host};
+

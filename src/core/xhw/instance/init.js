@@ -1,4 +1,4 @@
-import {handleCustom, handleGlobalPlugins, handleHook, handleInject, initPlugins} from "./plugin";
+import {handleCustom, handleGlobalPlugins, handleHook, handleInject, handlePlugins} from "./plugin";
 import {handlePreLoad} from "./preload"
 import {handleDiff} from "../../diff/index"
 import {handleStore} from "../../store/index"
@@ -6,7 +6,7 @@ import {handleStore} from "../../store/index"
 let uid = 0;
 
 /**
- * 初始化
+ * 每个vm都要进行的初始化操作
  * @param Host 最原始的宿主
  */
 function initHost(Host) {
@@ -42,11 +42,7 @@ function initHost(Host) {
     // }
 
     // 初始化插件
-    initPlugins(vm);
-    // 初始化预加载
-    // initPreLoad(vm)
-
-
+    handlePlugins(vm);
     // 处理全局插件方法全局
     handleGlobalPlugins(vm)
     // 处理预加载

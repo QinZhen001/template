@@ -1,6 +1,5 @@
 const {xhw, xhwApi} = require("../../core/index")
 const pagePlguin = require("../../plugins/pagePlguin")
-const pagePlguin2 = require("../../plugins/pagePlguin2")
 
 
 function consume() {
@@ -34,9 +33,11 @@ xhw.pageComponent({
       debugger
     },
     onLoad() {
+      debugger
       console.log("onLoad", this)
     },
     onShow() {
+      debugger
       console.log("onShow", this)
     },
     onHide() {
@@ -91,17 +92,6 @@ xhw.pageComponent({
       })
       console.log("testPreloadAsync success", res)
     },
-    commitState() {
-      // this.$store.set("model", "ttt")
-    },
-    getStateSync() {
-      // let model = this.$store.get("model")
-      // console.log("getStateSync model", model)
-    },
-    async getStateAsync() {
-      // let openId = await this.$store.getAsync("openId")
-      // console.log("getStateAsync openId", openId)
-    },
     testConsole() {
       console.log("loglogloglog")
       console.debug("debugdebugdebugdebug")
@@ -125,20 +115,18 @@ xhw.pageComponent({
       })
     },
   },
-  plugins: [pagePlguin],
+  // plugins: [pagePlguin],
 })
 
 
 // xhw.page({
 //   onLoad() {
-//     console.log("onLoad11111", this.$launch)
-//     this.$launch.xxx()
+//     console.log("onLoad11111", this)
 //   },
 //   onShow() {
 //     console.log("onShow", this)
 //   },
 //   plugins: [
 //     pagePlguin,
-//     pagePlguin2,
 //   ],
 // })

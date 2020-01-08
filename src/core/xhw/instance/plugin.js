@@ -337,7 +337,7 @@ function pushInitFun(func) {
  * 添加插件相关的类方法
  * @param Host
  */
-function initPlugin(Host) {
+function initPlugins(Host) {
   // $$globalPluginNames 全局插件的名字 存在于Host类上
   if (!Host.prototype.$$globalPluginNames) {
     Host.prototype.$$globalPluginNames = []
@@ -348,7 +348,7 @@ function initPlugin(Host) {
  * 初始化插件
  * @param vm 实例
  */
-function initPlugins(vm) {
+function handlePlugins(vm) {
   // if (vm.type === types.component) {
   //   throw new Error(logger(``))
   // }
@@ -360,4 +360,4 @@ function initPlugins(vm) {
 }
 
 
-export {initPlugins, handleCustom, handleInject, handleHook, initPlugin, handleGlobalPlugins};
+export {handlePlugins, handleCustom, handleInject, handleHook, initPlugins, handleGlobalPlugins};

@@ -25,23 +25,17 @@ console.log("store", store)
 xhw.app({
   $preLoad: true,
   $consoleLevel: 1,
-  async onLaunch(options) {
+  onLaunch(options) {
+    debugger
     console.log("this", this)
-    store.init(state)
+    store.init(state, {
+      debug: true,
+      updateAll: false,
+    })
     xhw.request.init(reqConfig, {store: store})
     // xhw.request.defaults.retryTime = 15000
-    this.testConsole()
     // console.log(xhw.request.defaults)
     // debugger
-
-    // let res = await xhw.request("testNormal")
-    // console.log("res", res)
-    // debugger
-    // let aaa = (console === wx.console)
-    // // debugger
-    // console.log("1111", this.$type, this)
-  },
-  testConsole() {
   },
   onShow() {
     console.log("1111onShow", this)
@@ -54,7 +48,5 @@ xhw.app({
     event,
   ],
 });
-
-
 
 
