@@ -15,7 +15,7 @@ export function fixPath(path) {
     }
   })
   console.log("mpPath", mpPath)
-  debugger
+  // debugger
   return mpPath
 }
 
@@ -51,7 +51,7 @@ export function getUsing(data, paths = []) {
     }
   })
   console.log("adasd", obj)
-  debugger
+  // debugger
   return obj
 }
 

@@ -60,7 +60,7 @@ function _vmInstallPreLoad({theHost}) {
     let preData = deepCopy(global["preData"])
     // debugger
     if (preData) {
-      debugger
+      // debugger
       theHost.preLoad(preData)
       global["preData"] = null
     } else {

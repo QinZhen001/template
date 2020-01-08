@@ -4,7 +4,7 @@ import {Store} from "./store";
 
 export function upDateCb(prop, value, old, path) {
   console.log(prop, value, old, path)
-  debugger
+  // debugger
   let patch = {}
   if (prop.indexOf('Array-push') === 0) {
     let dl = value.length - old.length
@@ -17,7 +17,7 @@ export function upDateCb(prop, value, old, path) {
     patch[fixPath(path + '-' + prop)] = value
   }
   console.log("patch", patch)
-  debugger
+  // debugger
   _update(patch)
 }
 
@@ -45,7 +45,7 @@ function _update(kv) {
   console.log("9999999999999999999910", store)
   const instances = store.instances
   console.log("instances", instances)
-  debugger
+  // debugger
   for (let key in instances) {
     if (instances.hasOwnProperty(key)) {
       instances[key].forEach(ins => {
@@ -59,7 +59,7 @@ function _update(kv) {
     }
   }
   console.log("store", store)
-  debugger
+  // debugger
   store.debug && storeChangeLogger(store, kv)
 }
 
@@ -67,7 +67,7 @@ function _update(kv) {
 function _updateOne(kv, store, ins) {
   if (store.updateAll || (ins.$updatePath && needUpdate(kv, ins.$updatePath))) {
     const patch = Object.assign({}, kv)
-    debugger
+    // debugger
     ins.setData(patch)
   }
   // const using = getUsing(store.viewData, ins.$use)
@@ -78,7 +78,7 @@ function _updateOne(kv, store, ins) {
 
 
 function storeChangeLogger(store, diffResult) {
-  debugger
+  // debugger
   try {
     const preState = wx.getStorageSync(`$currentState`) || {}
     const title = `Data Changed`

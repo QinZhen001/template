@@ -25,14 +25,14 @@ xhw.pageComponent({
   computed: {
     testComputed(scope) {
       console.log("scope", scope)
-      debugger
+      // debugger
       return this.bbb + " computed"
     },
   },
   methods: {
     onLoad() {
       console.log("onLoad", this)
-      debugger
+      // debugger
     },
     onShow() {
       this.setData({
@@ -41,13 +41,13 @@ xhw.pageComponent({
     },
     preLoad(data) {
       console.log("test page preLoad", data)
-      debugger
+      // debugger
     },
     onUnload() {
       console.log("test onUnload")
     },
     preLoadNB() {
-      debugger
+      // debugger
       console.log("preLoadNB")
       xhwApi.navigateBack({
         // preGet: async () => {

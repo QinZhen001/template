@@ -191,7 +191,7 @@ export class Store {
       return
     }
     if (this.viewData.hasOwnProperty(key)) {
-      debugger
+      // debugger
       this.observer.set(this.viewData, key, value, this.observer)
       return
     }
