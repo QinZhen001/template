@@ -14,7 +14,6 @@ xhw.pageComponent({
   computed: {
     testComputed(scope) {
       console.log("scope", scope)
-      // debugger
       return this.bbb + " computed"
     },
   },
@@ -22,7 +21,6 @@ xhw.pageComponent({
     onLoad() {
       console.log("test onLoad", this)
       testBucket = this.$bucket.choose("testList")
-      debugger
     },
     onShow() {
       this.setData({
@@ -37,12 +35,8 @@ xhw.pageComponent({
       console.log("test onUnload")
     },
     preLoadNB() {
-      // debugger
       console.log("preLoadNB")
       xhwApi.navigateBack({
-        // preGet: async () => {
-        //   return consume()
-        // },
         preGet: {
           aaa: "aaa",
         },
@@ -51,7 +45,6 @@ xhw.pageComponent({
     changeStore() {
       const round = Math.ceil(Math.random() * 10);
       this.$store.set("bbb", `更改bbb${round}`)
-      debugger
     },
     navToStore() {
       console.log("navToStore")

@@ -1,9 +1,6 @@
 import {xhw, xhwApi} from "@xhw/core"
 import pagePlguin from "../../plugins/pagePlguin"
 
-// const {xhw, xhwApi} = require("../../core/index")
-
-
 function consume() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -32,10 +29,8 @@ xhw.pageComponent({
   methods: {
     preLoad(data) {
       console.log("index preLoad", data, this)
-      debugger
     },
     onLoad() {
-      debugger
       console.log("onLoad", this)
     },
     onShow() {
@@ -121,14 +116,3 @@ xhw.pageComponent({
 })
 
 
-// xhw.page({
-//   onLoad() {
-//     console.log("onLoad11111", this)
-//   },
-//   onShow() {
-//     console.log("onShow", this)
-//   },
-//   plugins: [
-//     pagePlguin,
-//   ],
-// })

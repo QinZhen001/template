@@ -17,7 +17,6 @@ const bucketConfig = {
   testList: {
     action: async (success, fail) => {
       xhw.request("testNormal").then(res => {
-        debugger
         success(res.data.list)
       }, rej => {
         fail(rej)
