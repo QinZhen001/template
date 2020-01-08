@@ -1,4 +1,4 @@
-import {xhw, xhwApi} from "../../../core/index";
+import {xhw, xhwApi} from "@xhw/core"
 
 
 export async function getOpenIdByRequest() {

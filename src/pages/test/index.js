@@ -1,19 +1,7 @@
 import {xhw, xhwApi} from "@xhw/core"
 // const {xhw, xhwApi} = require("../../core/index")
 
-function consume() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({
-        test: {
-          a: "a",
-          b: "b",
-        },
-      })
-    }, 3000)
-  })
-}
-
+let testBucket
 
 xhw.pageComponent({
   use: [
@@ -32,8 +20,9 @@ xhw.pageComponent({
   },
   methods: {
     onLoad() {
-      console.log("onLoad", this)
-      // debugger
+      console.log("test onLoad", this)
+      testBucket = this.$bucket.choose("testList")
+      debugger
     },
     onShow() {
       this.setData({
@@ -69,6 +58,9 @@ xhw.pageComponent({
       wx.navigateTo({
         url: "/pages/store/index",
       })
+    },
+    getDataFromBucket() {
+      testBucket.get(5).then(res => console.log("from bucket", res))
     },
   },
 })
