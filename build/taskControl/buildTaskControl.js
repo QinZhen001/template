@@ -138,7 +138,7 @@ class BuildTaskControl {
 
     gulp.task(`dev`, gulp.series('clean', gulp.parallel('js', 'wxss', 'json', 'wxml', 'img'), 'install'));
 
-    gulp.task(`build`, gulp.series('clean', gulp.parallel('js', 'wxss', 'json', 'wxml', 'img'), 'transform', 'install'));
+    gulp.task(`build`, gulp.series('clean', gulp.parallel('js', 'wxss', 'json', 'wxml', 'img'), 'install'));
 
     gulp.task(`default`, gulp.series(`dev`));
   }

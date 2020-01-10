@@ -11,7 +11,7 @@
     "watch": "gulp watch --development",
     "build": "gulp build --production && npm run custom-install",
     "clean": "gulp clean",
-    "install": "xhw-cli mp -n",
+    "install:mp": "xhw-cli mp -n",
     "mock": "xhw-cli mock",
     "check": "xhw-cli check -t"
   },
@@ -68,6 +68,5 @@
     "webpack-node-externals": "^1.7.2",
     "webpack-stream": "^5.2.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

@@ -6,13 +6,10 @@ const path = require("path")
 const buildTaskControl = require("./taskControl/buildTaskControl")
 const LintTaskControl = require("./taskControl/lintTaskControl")
 const NpmTaskControl = require("./taskControl/npmTaskControl")
-const TransformTaskControl = require("./taskControl/transformTaskControl")
 const WatchTaskControl = require("./taskControl/watchTaskControl")
 
 
 function initTasks() {
-  // 转换
-  new TransformTaskControl()
   // eslint
   new LintTaskControl()
   // npm相关
