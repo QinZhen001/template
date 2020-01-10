@@ -1,5 +1,5 @@
 {
-  "name": "xhw-native",
+  "name": "xhw",
   "version": "1.0.0",
   "description": "a wechat applet frame for xhw",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "lint": "gulp lint",
     "fix": "gulp fix",
     "watch": "gulp watch --development",
-    "build": "gulp build --production && npm run custom-install",
+    "build": "gulp build --production",
     "clean": "gulp clean",
     "install:mp": "xhw-cli mp -n",
     "mock": "xhw-cli mock",
