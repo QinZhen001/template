@@ -1,14 +1,17 @@
 /**
- * 矩阵2.0请求配置
+ * xhw请求配置
  *
- * $commonParams 为每个请求data中的公共参数
- *              dependency 意味着，数据在state中
+ * $commonParams 为每一个请求data注入公共参数
+ *   common:同步数据，可直接获取
+ *   dependency 请求依赖 (数据存在于store，若获取不到数据，会触发store的getters函数获取数据)
  *
- *
+ * 每一项为一个请求配置
  * header (非必填，默认{'content-type': 'application/x-www-form-urlencoded'})
  * method (非必填，默认 'POST')
  * model 请求模式  (非必填，默认normal)
- * dependency 请求依赖的全局数据，对应在state中 (会自动去获取数据加到请求参数data中)  (非必填)
+ * dependency 当前请求的依赖
+ * url 请求地址
+ * retry 请求重试的此时 (非必填，默认0)
  *
  */
 import baseConfig from "./baseConfig"
