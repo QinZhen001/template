@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "@xhw/core": "^1.0.7",
-    "@xhw/plugin-event":"1.0.0",
-    "@xhw/plugin-bucket":"1.0.1"
+    "@xhw/core": "^1.1.1",
+    "@xhw/plugin-event":"1.1.1",
+    "@xhw/plugin-bucket":"1.1.1"
   }
 }
